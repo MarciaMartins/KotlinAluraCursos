@@ -1,9 +1,9 @@
-class Conta(
+abstract class Conta(
     var titular: String,
     val numero: Int
 ) {
     var saldo = 0.0
-        private set
+        protected set
 
     fun deposita(valor: Double) {
         if (valor > 0) {
@@ -11,11 +11,7 @@ class Conta(
         }
     }
 
-    fun saca(valor: Double) {
-        if (saldo >= valor) {
-            saldo -= valor
-        }
-    }
+    abstract fun saca(valor: Double)
 
     fun transfere(valor: Double, destino: Conta): Boolean {
         if (saldo >= valor) {
@@ -24,5 +20,13 @@ class Conta(
             return true
         }
         return false
+    }
+
+    fun impressao(){
+        println("====== Dados Conta ======")
+        println("Titular ${this.titular}, " +
+                "numero ${this.numero}, " +
+                "saldo ${this.saldo}")
+
     }
 }

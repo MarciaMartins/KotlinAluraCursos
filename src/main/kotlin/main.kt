@@ -1,9 +1,13 @@
 fun main() {
     println("Bem vindo ao Bytebank")
-    testaConta()
-    testaConta()
+
+    val cliente = Cliente(nome = "nome", cpf = "cpf", senha = 1123)
+    cliente.autentica(1234)
 
 }
+
+
+
 
 
 
